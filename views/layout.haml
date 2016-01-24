@@ -1,0 +1,19 @@
+%html
+  %head 
+    %meta{:charset => "utf-8"} 
+    %title Turnt Chat 
+    
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"} 
+    
+    %link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"}
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"}
+
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-route.min.js"}
+    
+    = css :main
+  %body{"ng-app" => "webTurnt"}
+    = yield
+  %footer
+    = js :main
+    = js :ngApp

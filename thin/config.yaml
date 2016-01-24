@@ -1,0 +1,18 @@
+--- 
+user: vagrant
+group: vagrant
+pid: /home/vagrant/thin/pid/thin.pid
+timeout: 30
+wait: 30
+log: /home/vagrant/thin/log/thin.log
+max_conns: 1024
+require: []
+environment: development
+max_persistent_conns: 512
+servers: 1
+threaded: true
+daemonize: true
+no-epoll: true
+socket: /home/vagrant/thin/sockets/thin.sock
+chdir: /var/www/app/
+tag: turnt-server
