@@ -15,4 +15,4 @@ daemonize: true
 no-epoll: true
 socket: /home/vagrant/thin/sockets/thin.sock
 chdir: /var/www/app/
-tag: turnt-server
+tag: api-server

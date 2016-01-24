@@ -1,31 +1,3 @@
 body {
-	background-color: #ff2850
-}
-
-.logo {
-	display: block;
-	margin: 10% auto;
-	width: 160px;
-}
-
-.enter {
-	display: block;
-	margin: 20px auto;
-	width: 250px;
-}
-
-.enter button, .enter input {
-	width: 250px;
-}
-
-.enter button {
-	margin-top: 10px;
-	background-color: #FB003E;
-	border-color: #FB003E;
-	color: white;
-}
-
-.enter button:hover {
-	background-color: #FB003E;
-	border-color: #FB003E;
+	background-color: #fff
 }

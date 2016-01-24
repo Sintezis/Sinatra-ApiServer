@@ -5,7 +5,7 @@
 	]
 
 	angular
-		.module "webTurnt", loadModules	
+		.module "apiServer", loadModules	
 		.config ($routeProvider)->
 			$routeProvider
 				.when "/", {

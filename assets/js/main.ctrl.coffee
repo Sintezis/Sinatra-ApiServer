@@ -1,6 +1,6 @@
 (->
 	angular
-		.module "webTurnt"
+		.module "apiServer"
 		.controller "MainController", MainController
 
 	MainController = () ->

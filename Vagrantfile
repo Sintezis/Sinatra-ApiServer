@@ -13,12 +13,12 @@ Vagrant.configure(2) do |config|
     exit
   end
 
-  config.vm.define 'Turnt' do |node|
+  config.vm.define 'Sinatra Api Server' do |node|
     node.vm.box = "hashicorp/precise32"
-    node.vm.network :private_network, ip: "192.168.2.103"
+    node.vm.network :private_network, ip: "192.168.2.105"
     node.vm.synced_folder "./", "/var/www/app/", :mount_options => ["dmode=777", "fmode=664"]
-    node.vm.hostname = 'turnt.dev'
-    node.hostmanager.aliases = %w(www.turnt.dev turnt.dev)
+    node.vm.hostname = 'api.dev'
+    node.hostmanager.aliases = %w(www.api.dev api.dev)
     node.vm.provision :shell do |sh|
       sh.path = "provision/provision.sh"
     end
