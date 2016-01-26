@@ -1,0 +1,14 @@
+###################
+### CONFIG VARS ###
+###################
+# RBENV
+rbenv_root: /usr/local/rbenv
+ruby_version: 2.0.0-p353
+
+#NGINX
+config_file_path: files/nginx.conf
+
+#DB SETUP
+db_name: sinatra_api_db
+db_user: sinatra_developer
+db_user_password: developer

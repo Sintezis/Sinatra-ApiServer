@@ -1,0 +1,20 @@
+- hosts: localhost
+  connection: local
+  
+  tasks:
+    #Install dependincies
+    - include: tasks/dependencies.yaml
+    #Install rbenv ruby manager
+    - include: tasks/rbenv.yaml
+    #Install postgresql database
+    - include: tasks/postgresql.yaml
+    #Install ngnix server 
+    - include: tasks/nginx.yaml
+    #Install thin ruby server
+    - include: tasks/thin.yaml
+    #Install ruby bundler
+    - include: tasks/bundler.yaml
+
+  handlers:
+    - include: handlers/global.yaml
+      

@@ -4,9 +4,9 @@ apt-get update
 apt-get install ansible -y
 
 cd `dirname $0`
-if [ ! -f playbook.yml ]; then
+if [ ! -f main.yml ]; then
     cd /vagrant/provision/
     echo $0
 fi
 
-PYTHONUNBUFFERED=1 ansible-playbook playbook.yaml --connection=local -i localhost,
+PYTHONUNBUFFERED=1 ansible-playbook main.yaml --connection=local -i localhost,

@@ -1,0 +1,2 @@
+- name: rubygems | install ruby bundler 
+  command: gem install bundler

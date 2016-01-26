@@ -1,0 +1,8 @@
+- name: hanlders | vars
+  include_vars: ../config.yaml
+
+- name: restart nginx
+  service: name=nginx state=restarted
+
+- name: rehash rbenv
+  shell: RBENV_ROOT={{ rbenv_root }} rbenv rehash

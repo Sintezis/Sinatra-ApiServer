@@ -1,0 +1,10 @@
+- name: nginx | get vars
+  include_vars: ../api_config.yaml
+
+- name: nginx | install server
+  apt: pkg=nginx state=installed
+
+- name: nginx | copy config file and restart nginx
+  template: src="{{ config_file_path }}" dest=/etc/nginx/nginx.conf
+  notify:
+  - restart nginx

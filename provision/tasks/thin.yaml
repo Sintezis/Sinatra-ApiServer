@@ -1,0 +1,11 @@
+- name: rubygems | install thin server
+  command: gem install thin
+
+# - name: thin | run server and demonize
+# 	file: path=/home/vagrant/thin/log state=directory owner=vagrant group=vagrant mode=0777
+
+# - file: path=/home/vagrant/thin/pid state=directory owner=vagrant group=vagrant mode=0777
+# - file: path=/home/vagrant/thin/sockets/ state=directory owner=vagrant group=vagrant mode=0777
+# - command: /usr/local/rbenv/versions/2.0.0-p353/bin/thin -C /var/www/app/thin_config.yaml -d start
+# 	notify:
+# 	- restart nginx

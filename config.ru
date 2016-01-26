@@ -26,5 +26,5 @@ DataMapper.finalize.auto_upgrade!
 #map controllers
 map('/api/records') 		 {run RecordsController}
 map('/api/authenticate') {run AuthenticationController}
-
+map('/') 								 {run WebController}
 

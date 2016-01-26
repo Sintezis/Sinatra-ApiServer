@@ -1,0 +1,19 @@
+- name: apt | purge system ruby version
+  apt:  pkg=ruby state=absent purge=yes
+
+- name: apt | install dependencies
+  apt: pkg={{ item }} state=latest install_recommends=no
+  with_items:
+    - git
+    - nodejs
+    - build-essential
+    - libcurl4-openssl-dev
+    - libmysqlclient-dev
+    - libreadline-dev
+    - libssl-dev
+    - libxml2-dev
+    - libxslt1-dev
+    - zlib1g-dev
+    - libpq-dev
+    - postgresql
+    - python-psycopg2
