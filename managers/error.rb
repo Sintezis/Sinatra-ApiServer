@@ -18,7 +18,7 @@ class Error
 			},
 			{
 				:code => 1004,
-				:msg => "Record not deletes, data missing, or invalid data request."
+				:msg => "Record not deleted, data missing, or invalid data request."
 			},
 			{
 				:code => 1005,
