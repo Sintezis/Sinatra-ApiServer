@@ -83,6 +83,7 @@ class AuthenticationController < Sinatra::Base
 				response.data = {:valid_user => true, :user => record}
 			else
 				response.error = Error.code 1009 #invalid recovery code
+			end
 		end
 		response.submit
 	end
