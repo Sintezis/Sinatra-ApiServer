@@ -1,5 +1,6 @@
 - name: rubygems | install thin server
-  command: gem install thin
+  sudo_user: vagrant
+  command: bash -lc "gem install thin"
 
 # - name: thin | run server and demonize
 # 	file: path=/home/vagrant/thin/log state=directory owner=vagrant group=vagrant mode=0777

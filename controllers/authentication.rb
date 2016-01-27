@@ -7,9 +7,6 @@ class AuthenticationController < Sinatra::Base
 			error 400 unless valid
 		end
 
-		#Wrapping incoming request in custom object
-		@api_request = Request.new(:for => {:request => request, :params => params}) 
-
 		#set model name where all the authetication data for a users is set
 		model_name = 'User'
 		model_object = Object.const_get(model_name)
@@ -18,7 +15,8 @@ class AuthenticationController < Sinatra::Base
 
 	helpers do
 		def api_request
-			@api_request
+			#Wrapping incoming request in custom object
+			Request.new(:for => {:request => request, :params => params}) 
 		end
 
 		def security
@@ -28,7 +26,7 @@ class AuthenticationController < Sinatra::Base
 
 	post '/register' do
 		Response.for :register, api_request do |response|
-			email = api_request.body[:email]
+			email = api_request.body["email"]
 			record = security.model.first(:email => email)
 			if record.nil?
 				#provided email is not in use, user can register with it
@@ -49,13 +47,15 @@ class AuthenticationController < Sinatra::Base
 
 	post '/login' do
 		Response.for :login, api_request do |response|
-			email = api_request.body[:email]
-			password = api_request.body[:password]
+			email = api_request.body["email"]
+			password = api_request.body["password"]
 			login_valid = security.login email, password 
 			if login_valid 
-				response.data = {:loged_in => true, :token => security.generate_token} 
+				security.user.token = security.generate_token
+				security.user.save
+				response.data = {:loged_in => true, :token => security.user.token} 
 			else
-				response.error = Error.code 1004 #inavlid email and password combination
+				response.error = Error.code 1006 #invalid email and password combination
 			end
 			response.submit
 		end
@@ -63,17 +63,32 @@ class AuthenticationController < Sinatra::Base
 
 	post '/recover/password' do
 		Response.for :password_recovery, api_request do |response|
-			email = api_request.body[:email]
+			email = api_request.body["email"]
 			record = security.model.first(:email => email)
 			unless record.nil?
 				code = security.recovery_code
 				#send recover email with generated recovery code to specified email
 				response.data = {:email_sent => true}
 			else
-				response.error = Error.code 1006 #there is no user with provided email in our records
+				response.error = Error.code 1007 #there is no user with provided email in our records
 			end
 			response.submit
 		end
+	end
+
+	post 'recover/account' do
+		Response.for :account_recovery, api_request do |response|
+			record = security.model.first(:recovery_code => api_request.body["code"])
+			unless record.nil?
+				response.data = {:valid_user => true, :user => record}
+			else
+				response.error = Error.code 1009 #invalid recovery code
+		end
+		response.submit
+	end
+
+	post 'change/password' do
+
 	end
 
 	put '/logout/:id' do

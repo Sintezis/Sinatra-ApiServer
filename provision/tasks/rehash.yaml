@@ -1,0 +1,5 @@
+- name: rbevn | get vars
+  include_vars: ../api_config.yaml
+
+- name: rbenv | rehash rbenv
+  shell: RBENV_ROOT={{ rbenv_root }} rbenv rehash

@@ -1,2 +1,8 @@
 - name: rubygems | install ruby bundler 
-  command: gem install bundler
+  sudo_user: vagrant
+  command: bash -lc "gem install bundler"
+
+- name: rubygems | install gem dependencies 
+  sudo_user: vagrant
+  sudo: no
+  command: bash -lc "bundle install"

@@ -6,12 +6,18 @@
     - include: tasks/dependencies.yaml
     #Install rbenv ruby manager
     - include: tasks/rbenv.yaml
+    #Rehash rbenv
+    - include: tasks/rehash.yaml
     #Install postgresql database
     - include: tasks/postgresql.yaml
     #Install ngnix server 
     - include: tasks/nginx.yaml
     #Install thin ruby server
     - include: tasks/thin.yaml
+    #Install Sinatra framework
+    - include: tasks/sinatra.yaml
+    #Rehash rbenv
+    - include: tasks/rehash.yaml
     #Install ruby bundler
     - include: tasks/bundler.yaml
 

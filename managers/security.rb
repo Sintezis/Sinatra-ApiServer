@@ -4,7 +4,7 @@ class Security
 	attr_accessor :model, :user
 
 	def initialize object
-		@model = object
+		@model = object[:model]
 	end
 
 	def parse_tokens env

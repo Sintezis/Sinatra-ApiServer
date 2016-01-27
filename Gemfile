@@ -11,5 +11,5 @@ gem 'dm-postgres-adapter'
 gem "coffee-script"
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 gem 'airborne'
-gem 'houston', '~> 2.2
+gem 'houston'
 

@@ -26,14 +26,28 @@ class Error
 			},
 			{
 				:code => 1006,
+				:msg => "Invalid email and password combination."
+			},
+			{
+				:code => 1007,
 				:msg => "There is no user with provided email in our records."
+			},
+			{
+				:code => 1008,
+				:msg => "Invalid model request."
+			},
+			{
+				:code => 1009,
+				:msg => "Invalid recovery code."
 			}
+
 		]
 	end
 
 	#INSTANCE METHODS
 	def get 
-		@errors.find {|error| error[:code] == @code}
+		error = @errors.find {|error| error[:code] == @code}
+		return error
 	end
 
 	#STATIC METHODS

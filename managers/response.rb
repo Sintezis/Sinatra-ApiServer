@@ -7,6 +7,7 @@ class Response
 		@model_name = @request.params[:model]
 		@content = {}
 		@error = nil
+		@data = nil
 	end
 
 	def self.for type, request
@@ -15,7 +16,7 @@ class Response
 	end
 
 	def prepare_response 
-		send @type		
+		send @type unless @type.nil?		
 	end
 
 	def set_error 
@@ -30,40 +31,40 @@ class Response
 
 	#Authentication Controller
 	def register 
-		@content = @data
+		@content = @data if @error.nil?
 	end
 	
 	def login
-		@content = @data
+		@content = @data if @error.nil?
 	end
 
 	def password_recovery
-		@content = @data
+		@content = @data if @error.nil?
 	end
 
 	def logout
-		@content = @data
+		@content = @data if @error.nil?
 	end
 
 	#Records Controller
 	def all_records
-		@content = @data
+		@content = @data if @error.nil?
 	end
 
 	def get_record
-		@content = @data
+		@content = @data if @error.nil?
 	end
 
 	def create_record
-		@content = @data
+		@content = @data if @error.nil?
 	end
 
 	def save_record
-		@content = @data
+		@content = @data if @error.nil?
 	end
 
 	def delete_record
-		@content = @data
+		@content = @data if @error.nil?
 	end
 
 	def sync_records
