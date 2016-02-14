@@ -53,7 +53,7 @@ class AuthenticationController < Sinatra::Base
 			if login_valid 
 				security.user.token = security.generate_token
 				security.user.save
-				response.data = {:loged_in => true, :token => security.user.token} 
+				response.data = {:logged_in => true, :token => security.user.token, :user_id => security.user.id} 
 			else
 				response.error = Error.code 1006 #invalid email and password combination
 			end

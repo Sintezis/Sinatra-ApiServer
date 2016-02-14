@@ -15,7 +15,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.define 'Sinatra Api Server' do |node|
     node.vm.box = "hashicorp/precise32"
-    node.vm.network :private_network, ip: "192.168.100.102"
+    node.vm.network :private_network, ip: "192.168.100.103"
     node.vm.synced_folder "./", "/var/www/app/", :mount_options => ["dmode=777", "fmode=664"]
     node.vm.hostname = 'server.dev'
     node.hostmanager.aliases = %w(www.server.dev server.dev)

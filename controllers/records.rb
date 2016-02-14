@@ -24,9 +24,9 @@ class RecordsController < Sinatra::Base
 		end
 
 		model_object = Object.const_get('User')
-		Security.new(:model => model_object).validate request do |valid|
-			error 401 unless valid	
-		end 
+		# Security.new(:model => model_object).validate request do |valid|
+		# 	error 401 unless valid	
+		# end 
 	end
 
 	#GET ALL RECORDS FOR MODEL
