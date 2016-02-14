@@ -23,7 +23,7 @@ Vagrant Ruby Box comes with the following tools:
 
 Config
 ------
-API Server comes with a basic `api_config.yaml` file, here your db credentials along with ruby version are set. This config will affect your installed postgresql DB settings and will setup sinatra [data mapper](https://www.datamapper.com) module config accordingly 
+API Server comes with a basic `api_config.yaml` file, here your db credentials along with ruby version are set. This config will affect your installed postgresql DB settings and will setup sinatra [data mapper](https://www.datamapper.org) module config accordingly 
 
 ```
 	# RBENV
