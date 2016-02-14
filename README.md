@@ -23,7 +23,8 @@ Vagrant Ruby Box comes with the following tools:
 
 Config
 ------
-API Server comes with a basic `api_config.yaml` file, here your db credentials along with ruby version are set. This config will affect your installed postgresql DB settings and will setup sinatra [data mapper](https://www.datamapper.org) module config accordingly 
+API Server comes with a basic `api_config.yaml` file, here your db credentials along with ruby version are set. This config will affect your installed postgresql DB settings and will setup sinatra [data mapper](https://www.datamapper.org
+) module config accordingly 
 
 ```
 	# RBENV
@@ -61,6 +62,7 @@ Listening on 0.0.0.0:3000, CTRL+C to stop
 ```
 
 Your api server is now runing on `server.dev:3000` in development mode, meaning if the code throws errors you will see them printed in terminal. To stop the server press `ctrl + c` in terminal. 
+
 Thin can also run as daemon, run `thin -C /var/www/app/thin/config.yaml -d start`. Daemon is configured with thin config file `thin/config.yaml`, where you can find logs locations and relevant data.
 
 API Documentation
